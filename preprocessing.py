@@ -20,11 +20,17 @@ X = np.asarray(X)
 X = np.expand_dims(X, -1)
 
 #getting labels for training
-y = pd.get_dummies(data['emotion']).as_matrix()
+# y = pd.get_dummies(data['emotion']).as_matrix()
+y = pd.get_dummies(data['emotion']).values
+
+
+##### IMPORTANT ALWAYS CHANGE #####
+X_name = "fdataX"
+y_name = "flabels"
 
 #storing them using numpy
-np.save('fdataX', X)
-np.save('flabels', y)
+np.save('./fdataX/' + X_name, X)
+np.save('./flabels/' + y_name, y)
 
 print("Preprocessing Done")
 print("Number of Features: "+str(len(X[0])))

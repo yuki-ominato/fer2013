@@ -2,9 +2,12 @@ import itertools
 import numpy as np
 import matplotlib.pyplot as plt
 from sklearn.metrics import confusion_matrix
+import csv
 
-y_true = np.load('./truey.npy')
-y_pred = np.load('./predy.npy')
+# CHECK LINE 9, 10, 37
+
+y_true = np.load('./truey/truey_all.npy')
+y_pred = np.load('./predy/predy_all.npy')
 cm = confusion_matrix(y_true, y_pred)
 labels = ['Angry', 'Disgust', 'Fear', 'Happy', 'Sad', 'Surprise', 'Neutral']
 title='Confusion matrix'
@@ -27,3 +30,13 @@ plt.ylabel('True label')
 plt.xlabel('Predicted label')
 plt.tight_layout()
 plt.show()
+
+
+
+# csvファイルに保存
+file_path = '/home/gpu-server-2/Desktop/ominato/fer2013/conf_result/confmat_all.csv'
+with open(file_path, mode='w', newline='') as file:
+    writer = csv.writer(file)
+    writer.writerows(cm)
+
+print("CSVファイルに保存されました。")
