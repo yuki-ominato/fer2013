@@ -126,7 +126,3 @@ plt.ylabel('Accuracy')
 plt.xlabel('Epoch')
 plt.legend(loc='lower right')
 plt.show()
-
-"""
-python train.py --outdir=training-runs --cfg=stylegan3-t --data=/home/gpu-server-2/Desktop/ominato/fer2013/sg3_train_happy.zip --gpus=1 --batch=8 --gamma=8.2 --mirror=1 --metrics=none --kimg=1000
-"""
